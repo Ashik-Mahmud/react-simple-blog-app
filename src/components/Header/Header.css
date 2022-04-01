@@ -1,0 +1,45 @@
+#header {
+  position: relative;
+}
+#header .nav-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0.5rem 0rem;
+}
+
+#header .brand-logo {
+  font-size: 1.5rem;
+  color: var(--primary-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  font-weight: bold;
+  margin: 0.7rem 0rem;
+}
+
+#header ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0.6rem 0rem;
+}
+#header ul a {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  font-weight: 500;
+  border-radius: 5px;
+}
+#header ul a.active {
+  background-color: var(--primary-color);
+  color: var(--white-color);
+  padding: 0.3rem 0.5rem;
+}

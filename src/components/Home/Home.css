@@ -1,0 +1,21 @@
+#home {
+  padding: 2rem 0rem;
+  position: relative;
+}
+#home .title {
+  padding: 0.4rem 1rem;
+  background-color: #f8f8f8;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+}
+#home .blog-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 1rem;
+  position: relative;
+}
+@media (max-width: 760px) {
+  #home .blog-container {
+    grid-template-columns: 1fr;
+  }
+}
