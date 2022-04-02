@@ -50,6 +50,9 @@ const BlogContainer = styled.div`
   padding: 1rem;
   margin: 1rem 0rem;
   border-radius: 5px;
+  @media (max-width: 768px) {
+    flex-direction: column;
+  }
   .blog-img {
     height: 100%;
     width: 100%;
@@ -70,6 +73,10 @@ const BlogContainer = styled.div`
       margin: 0.5rem 0rem;
       gap: 1rem;
       font-size: 0.9rem;
+      @media (max-width: 768px) {
+        flex-wrap: wrap;
+        gap: 0rem;
+      }
     }
     p {
       color: #666;
