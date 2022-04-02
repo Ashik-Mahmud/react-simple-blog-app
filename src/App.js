@@ -1,5 +1,5 @@
 import { createContext } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
 import BlogDetails from './components/BlogDetails/BlogDetails';
@@ -11,10 +11,12 @@ import useBlogs from './hooks/useBlogs';
 export const BlogContext = createContext([])
 function App() {
     const [blogs, setBlogs] = useBlogs();
+    const pathname = useLocation();
+    console.log();
   return (
     <>
      <BlogContext.Provider value={{blogs, setBlogs}}>
-      <Header />
+    {!pathname.pathname.includes('blog') && <Header />}
       <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
