@@ -1,4 +1,4 @@
-import { createContext } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import { Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
 import About from './components/About/About';
@@ -12,10 +12,16 @@ export const BlogContext = createContext([])
 function App() {
     const [blogs, setBlogs] = useBlogs();
     const pathname = useLocation();
-    console.log();
+    const [search, setSearch] = useState('')
+    const [searchBlogs, setSearchBlogs] = useState([]);
+    
+    useEffect(()=>{
+      setSearchBlogs(blogs)
+    }, [blogs]);
+
   return (
     <>
-     <BlogContext.Provider value={{blogs, setBlogs}}>
+     <BlogContext.Provider value={{blogs, setBlogs, search, setSearch, searchBlogs, setSearchBlogs}}>
     {!pathname.pathname.includes('blog') && <Header />}
       <Routes>
           <Route path='/' element={<Home />} />

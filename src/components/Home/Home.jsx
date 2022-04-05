@@ -3,7 +3,8 @@ import { BlogContext } from "../../App";
 import Blog from "../Blog/Blog";
 import "./Home.css";
 const Home = () => {
-  const { blogs } = useContext(BlogContext);
+  const { searchBlogs } = useContext(BlogContext);
+
   return (
     <>
       <section id="home">
@@ -14,7 +15,7 @@ const Home = () => {
             <p>increase your knowledge to read blog yourself</p>
           </div>
           <div className="blog-container">
-            {blogs.map((blog) => (
+            {searchBlogs.map((blog) => (
               <Blog key={blog._id} blogContent={blog} />
             ))}
           </div>

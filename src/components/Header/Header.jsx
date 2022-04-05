@@ -1,10 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsSearch } from "react-icons/bs";
 import { ImBlog } from "react-icons/im";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import styled from "styled-components";
+import { BlogContext } from "../../App";
 import "./Header.css";
 const Header = () => {
+  const { search, setSearch, blogs, setSearchBlogs } = useContext(BlogContext);
+  const location = useLocation();
+
+  const handleSearchTrigger = () => {
+    console.log(blogs);
+    const searchedBlogs = blogs.filter((blog) =>
+      blog.title.toLowerCase().includes(search.toLowerCase())
+    );
+    setSearchBlogs(searchedBlogs);
+  };
+
   return (
     <header id="header">
       <nav>
@@ -40,12 +52,19 @@ const Header = () => {
                 </NavLink>
               </li>
             </ul>
-            <SearchContainer>
-              <input type="search" placeholder="Search" />
-              <button>
-                <BsSearch />
-              </button>
-            </SearchContainer>
+            {location.pathname === "/" && (
+              <SearchContainer>
+                <input
+                  type="search"
+                  value={search}
+                  placeholder="Search"
+                  onChange={(e) => setSearch(e.target.value)}
+                />
+                <button onClick={handleSearchTrigger}>
+                  <BsSearch />
+                </button>
+              </SearchContainer>
+            )}
           </div>
         </div>
       </nav>
